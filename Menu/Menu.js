@@ -55,7 +55,7 @@ function makeMenu(array){
   return menu;
 }
 
-let menuButton = document.querySelector('.menu-button');
+let menuButton = document.querySelector('body');
 
 menuButton.appendChild(makeMenu(menuItems));
 console.log(makeMenu(menuItems));
