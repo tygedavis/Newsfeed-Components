@@ -112,3 +112,42 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function articleMaker(header, date, firstParagraph, secondParagraph, thirdParagraph){
+  //Define New Elements
+  let div = document.createElement('div');
+  let articleTitle = document.createElement('h2');
+  let articleDate = document.createElement('p');
+  let pOne = document.createElement('p');
+  let pTwo = document.createElement('p');
+  let pThree = document.createElement('p');
+  let expandButton = document.createElement('span');
+
+  //Setup Structure of Elements
+  div.appendChild(articleTitle);
+  div.appendChild(articleDate);
+  div.appendChild(pOne);
+  div.appendChild(pTwo);
+  div.appendChild(pThree);
+  div.appendChild(expandButton);
+
+  //Set Class Names
+  div.classList.add('article');
+  articleDate.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+  //Set Text Content
+  articleTitle.textContent = header;
+  articleDate.textContent = date;
+  pOne.textContent = firstParagraph;
+  pTwo.textContent = secondParagraph;
+  pThree.textContent = thirdParagraph;
+
+  //Button Events
+  
+  return div;
+}
+//For Calling the Function
+//Grab the parent element to append our data to
+
+//Loop through the data and create panels for each title and content
