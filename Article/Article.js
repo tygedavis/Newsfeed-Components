@@ -96,7 +96,7 @@ const data = [
 
     {three separate paragraph elements}
 
-    <span class='expandButton'></span>
+    <span class='expandButton'>Expand</span>
   </div>
 
   Hint: You will need to use createElement more than once here!
@@ -119,10 +119,10 @@ let articles = document.querySelector('.articles');
 
 //Loop through the data and create panels for each title and content
 data.forEach(content => {
-  articles.appendChild(articleMaker(content.header, content.date, content.firstParagraph, content.secondParagraph, content.thirdParagraph));
+  articles.appendChild(articleMaker(content.title, content.date, content.firstParagraph, content.secondParagraph, content.thirdParagraph));
 })
 
-function articleMaker(header, date, firstParagraph, secondParagraph, thirdParagraph){
+function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph){
   //Define New Elements
   let div = document.createElement('div');
   let articleTitle = document.createElement('h2');
@@ -147,7 +147,7 @@ function articleMaker(header, date, firstParagraph, secondParagraph, thirdParagr
   expandButton.classList.add('expandButton');
 
   //Set Text Content
-  articleTitle.textContent = header;
+  articleTitle.textContent = title;
   articleDate.textContent = date;
   pOne.textContent = firstParagraph;
   pTwo.textContent = secondParagraph;
