@@ -149,5 +149,9 @@ function articleMaker(header, date, firstParagraph, secondParagraph, thirdParagr
 }
 //For Calling the Function
 //Grab the parent element to append our data to
+let articles = document.querySelectorAll('.articles');
 
 //Loop through the data and create panels for each title and content
+data.forEach(content => {
+  articles.appendChild(articleMaker(content.header, content.date, content.firstParagraph, content.secondParagraph, content.thirdParagraph));
+})
