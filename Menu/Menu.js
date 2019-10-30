@@ -35,24 +35,21 @@ let menuItems = [
 */
 let menuIcon = document.querySelector('.menu-button');
 
-menuItems.forEach(data => {
-  menuIcon.appendChild(makeMenu(data.array));
-})
-
 function makeMenu(array){
   let menu = document.createElement('div');
   let list = document.createElement('ul');
-  let item = document.createElement('li');
-
-  menu.appendChild(list);
-  list.appendChild(item);
 
   menu.classList.add(menu);
-
-  item.textContent = array;
+  menu.appendChild(list);
+  
+  array.forEach(data => {
+    let item = document.createElement('li');
+    item.textContent = data;
+    list.appendChild(item);
+  })
 
   menu.addEventListener('click', () => {
-    menu.classList.toggle('menu--open')
+    list.classList.toggle('menu--open');
   });
 
   return menu;
