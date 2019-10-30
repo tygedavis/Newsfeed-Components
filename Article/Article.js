@@ -133,12 +133,13 @@ function articleMaker(header, date, firstParagraph, secondParagraph, thirdParagr
   let expandButton = document.createElement('span');
 
   //Setup Structure of Elements
-  div.appendChild(articleTitle);
-  div.appendChild(articleDate);
-  div.appendChild(pOne);
-  div.appendChild(pTwo);
-  div.appendChild(pThree);
-  div.appendChild(expandButton);
+  // div.appendChild(articleTitle);
+  // div.appendChild(articleDate);
+  // div.appendChild(pOne);
+  // div.appendChild(pTwo);
+  // div.appendChild(pThree);
+  // div.appendChild(expandButton);
+  div.append(articleTitle, articleDate, pOne, pTwo, pThree, expandButton);
 
   //Set Class Names
   div.classList.add('article');
