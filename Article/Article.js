@@ -118,9 +118,6 @@ const data = [
 let articles = document.querySelector('.articles');
 
 //Loop through the data and create panels for each title and content
-data.forEach(content => {
-  articles.appendChild(articleMaker(content.title, content.date, content.firstParagraph, content.secondParagraph, content.thirdParagraph));
-})
 
 function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph){
   //Define New Elements
@@ -163,7 +160,7 @@ function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagra
 }
 
 const myArticle = {
-  title: 'I MADE THIS',
+  title: 'The Spanish Language',
   date: 'Oct 30, 2019',
   firstParagraph: `Spanish is a part of the Ibero-Romance group of languages, which evolved from several dialects of Vulgar Latin in Iberia after the collapse of the Western Roman Empire in the 5th century. The oldest Latin texts with traces of Spanish come from mid-northern Iberia in the 9th century,[9] and the first systematic written use of the language happened in Toledo, a prominent city of the Kingdom of Castile, in the 13th century. Beginning in 1492, the Spanish language was taken to the viceroyalties of the Spanish Empire, most notably to the Americas, as well as territories in Africa, Oceania and the Philippines.[10]`,
 
@@ -173,6 +170,7 @@ const myArticle = {
 }
 
 data.push(myArticle);
+
 const body = document.querySelector('body');
 const newArticles = data.map(data => {
   return body.appendChild(articleMaker(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
