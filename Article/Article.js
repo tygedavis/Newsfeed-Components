@@ -96,7 +96,7 @@ const data = [
 
     {three separate paragraph elements}
 
-    <span class='expandButton'></span>
+    <span class='expandButton'>Expand</span>
   </div>
 
   Hint: You will need to use createElement more than once here!
@@ -112,3 +112,66 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+//For Calling the Function
+//Grab the parent element to append our data to
+let articles = document.querySelector('.articles');
+
+//Loop through the data and create panels for each title and content
+
+function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph){
+  //Define New Elements
+  let div = document.createElement('div');
+  let articleTitle = document.createElement('h2');
+  let articleDate = document.createElement('p');
+  let pOne = document.createElement('p');
+  let pTwo = document.createElement('p');
+  let pThree = document.createElement('p');
+  let expandButton = document.createElement('span');
+
+  //Setup Structure of Elements
+  // div.appendChild(articleTitle);
+  // div.appendChild(articleDate);
+  // div.appendChild(pOne);
+  // div.appendChild(pTwo);
+  // div.appendChild(pThree);
+  // div.appendChild(expandButton);
+  div.append(articleTitle, articleDate, pOne, pTwo, pThree, expandButton);
+
+  //Set Class Names
+  div.classList.add('article');
+  articleDate.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+  //Set Text Content
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  pOne.textContent = firstParagraph;
+  pTwo.textContent = secondParagraph;
+  pThree.textContent = thirdParagraph;
+  expandButton.textContent = "Expand";
+
+  //Button Events
+  expandButton.addEventListener('click', () => {
+    div.classList.toggle('article-open');
+  })
+  
+  return div;
+}
+
+const myArticle = {
+  title: 'The Spanish Language',
+  date: 'Oct 30, 2019',
+  firstParagraph: `Spanish is a part of the Ibero-Romance group of languages, which evolved from several dialects of Vulgar Latin in Iberia after the collapse of the Western Roman Empire in the 5th century. The oldest Latin texts with traces of Spanish come from mid-northern Iberia in the 9th century,[9] and the first systematic written use of the language happened in Toledo, a prominent city of the Kingdom of Castile, in the 13th century. Beginning in 1492, the Spanish language was taken to the viceroyalties of the Spanish Empire, most notably to the Americas, as well as territories in Africa, Oceania and the Philippines.[10]`,
+
+  secondParagraph: `A 1949 study by Italian-American linguist Mario Pei, analyzing the degree of difference from a language's parent (Latin, in the case of Romance languages) by comparing phonology, inflection, syntax, vocabulary, and intonation, indicated the following percentages (the higher the percentage, the greater the distance from Latin): In the case of Spanish, it is one of the closest Romance languages to Latin (20% distance), only behind Sardinian (8% distance) and Italian (12% distance).[11] Around 75% of modern Spanish vocabulary is derived from Latin, including Latin borrowings from Ancient Greek.[12][13] Spanish vocabulary has been in contact with Arabic from an early date, having developed during the Al-Andalus era in the Iberian Peninsula.[14][15][16][17] With around 8% of its vocabulary being Arabic in origin, this language makes up the second greatest vocabulary source after Latin itself.[14][18][19] It has also been influenced by Basque, Iberian, Celtiberian, Visigothic, and by neighboring Ibero-Romance languages.[20][14] Additionally, it has absorbed vocabulary from other languages, particularly other Romance languages—French, Italian, Andalusi Romance, Portuguese, Galician, Catalan, Occitan, and Sardinian—as well as from Quechua, Nahuatl, and other indigenous languages of the Americas.[21]`,
+
+  thirdParagraph: `Spanish is one of the six official languages of the United Nations. It is also used as an official language by the European Union, the Organization of American States, the Union of South American Nations, the Community of Latin American and Caribbean States, the African Union and many other international organizations.[22] Information via Wikipedia.`
+}
+
+data.push(myArticle);
+
+const body = document.querySelector('body');
+const newArticles = data.map(data => {
+  return body.appendChild(articleMaker(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
